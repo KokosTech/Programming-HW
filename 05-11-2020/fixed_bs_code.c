@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <sys/resource.h>
 
 struct votes {
     int men;
@@ -36,12 +35,7 @@ int main() {
     add_votes(all, california);
 
     printf("all->men: %d\n", all->men);
-
-    struct rusage r_usage;
-    getrusage(RUSAGE_SELF,&r_usage);
-    // Print the maximum resident set size used (in kilobytes).
-    printf("Memory usage: %ld kilobytes\n",r_usage.ru_maxrss);
-
+    
     free(michigan);
     free(illinois);
     free(california);
