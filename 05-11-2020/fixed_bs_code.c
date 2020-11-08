@@ -14,10 +14,10 @@ void add_votes(struct votes* v1, struct votes* v2) {
 
 int main() {
 
-    struct votes* michigan = (struct votes*) malloc (sizeof (struct votes));;
-    struct votes* illinois = (struct votes*) malloc (sizeof (struct votes));;
-    struct votes* california = (struct votes*) malloc (sizeof (struct votes));;
-    struct votes* all = (struct votes*) malloc (sizeof (struct votes));;
+    struct votes* michigan = (struct votes*) malloc (sizeof (struct votes));
+    struct votes* illinois = (struct votes*) malloc (sizeof (struct votes));
+    struct votes* california = (struct votes*) malloc (sizeof (struct votes));
+    struct votes* all = (struct votes*) malloc (sizeof (struct votes));
 
     michigan->men = 100;
     illinois->men = 100;
