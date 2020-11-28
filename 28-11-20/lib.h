@@ -142,32 +142,133 @@ void free_human(People* human){
 // Sub-Functions
 
 void get_names(People* human){
-    printf("Enter: First Name: ");
+    printf("Enter First Name: ");
         human->name.first = get_string();
-    printf("Enter: Mid Name: ");
+    printf("Enter Mid Name: ");
         human->name.mid = get_string();
-    printf("Enter: Last Name: ");
+    printf("Enter Last Name: ");
         human->name.last = get_string();
 }
 void print_names(People* human){
+    printf("\nNames:\n\n");
     printf("First Name: %s\n", human->name.first);
     printf("Mid Name: %s\n", human->name.mid);
     printf("Last Name: %s\n", human->name.last);
 }
 
 void get_looks(People* human){
+    printf("Enter eye color: ");
+        human->looks.eye_color = get_string();
+    printf("Enter hair color: ");
+        human->looks.hair_color = get_string();
+}
+void print_looks(People* human){
+    printf("\nLooks:\n\n");
+    printf("Eye color: %s\n", human->looks.eye_color);
+    printf("Hair color: %s\n", human->looks.hair_color);
+}
+
+void get_specs(People* human){
+    printf("Enter happiness: ");
+        scanf("%f", &(human->specs.happiness));
+    printf("Enter health: ");
+        scanf("%f", &(human->specs.health));
+    printf("Enter criminal rate: ");
+        scanf("%f", &(human->specs.criminal_rate));
+    fflush(stdin);
+}
+void print_specs(People* human){
+    printf("\nSpecs:\n\n");
+    printf("Happiness: %.2f\n", human->specs.happiness);
+    printf("Health: %.2f\n", human->specs.health);
+    printf("Criminal rate: %.2f\n", human->specs.criminal_rate);
+}
+
+void get_edu(People* human){
+    char el, se, ba, ma;
+
+    printf("Do you have elementary education (y/N): ");
+        scanf(" %c", &el);
+    if(el == 'y' || el == 'Y')
+        human->edu.elementary = true;
+    else{
+        fflush(stdin);
+        return;
+    }
+    printf("Do you have secondary education (y/N): ");
+        scanf(" %c", &se);
+    if(se == 'y' || se == 'Y')
+        human->edu.secondary = true;
+    else{
+        fflush(stdin);
+        return;
+    }
+    printf("Do you have a bachelor degree (y/N): ");
+        scanf(" %c", &ba);
+    if(ba == 'y' || ba == 'Y')
+        human->edu.bachelor = true;
+    else{
+        fflush(stdin);
+        return;
+    }
+    printf("Do you have a master degree (y/N): ");
+        scanf(" %c", &ma);
+    if(ma == 'y' || ma == 'Y')
+        human->edu.master = true;
+    fflush(stdin);
+}
+void print_edu(People* human){
+    printf("\nEducation:\n\n");
+    printf("Elementary: %s\n", human->edu.elementary ? "Yes" : "No");
+    printf("Secondary: %s\n", human->edu.secondary ? "Yes" : "No");
+    printf("Bachelor: %s\n", human->edu.bachelor ? "Yes" : "No");
+    printf("Master: %s\n", human->edu.master ? "Yes" : "No");
+}
+
+void get_address(People* human){
+    fflush(stdin);
+    getchar();
+    printf("Enter a country: ");
+        human->address.country = get_string();
+    printf("Enter %s's country code: ", human->address.country);
+        human->address.country_code = get_string();
+    printf("Enter a city: ");
+        human->address.city = get_string();
+    printf("Enter a neighbourhood: ");
+        human->address.neighbourhood = get_string();
+    printf("Enter a street: ");
+        human->address.street = get_string();
+    printf("Enter a street number: ");
+        scanf("%d", &human->address.street_number);
+    fflush(stdin);
+}
+void print_address(People* human){
+    printf("\nAddress:\n\n");
+    printf("Country: %s\n", human->address.country);
+    printf("Country Code: %s\n", human->address.country_code);
+    printf("City: %s\n", human->address.city);
+    printf("Neighbourhood: %s\n", human->address.neighbourhood);
+    printf("Street: %s\n", human->address.street);
+    printf("Street Number: %d\n", human->address.street_number);
 
 }
-void 
 // Functions
 
 void get_human(People* human){
     get_names(human);
+    get_looks(human);
+    get_specs(human);
+    get_edu(human);
+    get_address(human);
 }
 
 void print_human(People* human){
-    printf("Human Specifications:\n\n");
+    printf("\nHuman Specifications:\n");
     print_names(human);
+    print_looks(human);
+    print_specs(human);
+    print_edu(human);
+    print_address(human);
 
 }
 
