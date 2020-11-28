@@ -149,13 +149,16 @@ void get_names(People* human){
     printf("Enter: Last Name: ");
         human->name.last = get_string();
 }
-
 void print_names(People* human){
     printf("First Name: %s\n", human->name.first);
     printf("Mid Name: %s\n", human->name.mid);
     printf("Last Name: %s\n", human->name.last);
 }
 
+void get_looks(People* human){
+
+}
+void 
 // Functions
 
 void get_human(People* human){

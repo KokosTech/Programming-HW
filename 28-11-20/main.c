@@ -2,7 +2,7 @@
 
 int main(){
     
-    void start();
+    start();
 
     return 0;
 }
