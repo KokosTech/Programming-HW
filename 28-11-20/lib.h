@@ -110,21 +110,61 @@ People* init_human(){
     return human;
 }
 
-void free_human(People* human){
+// Free
 
+void free_names(People* human){
+    free(human->name.first);
+    free(human->name.mid);
+    free(human->name.last);
+}
+
+void free_looks(People* human){
+    free(human->looks.eye_color);
+    free(human->looks.hair_color);
+}
+
+void free_address(People* human){
+    free(human->address.country);
+    free(human->address.country_code);
+    free(human->address.city);
+    free(human->address.neighbourhood);
+    free(human->address.street);
+}
+
+
+void free_human(People* human){
+    free_names(human);
+    free_looks(human);
+    free_address(human);
+    free(human);
 }
 
 // Sub-Functions
 
 void get_names(People* human){
     printf("Enter: First Name: ");
+        human->name.first = get_string();
     printf("Enter: Mid Name: ");
+        human->name.mid = get_string();
     printf("Enter: Last Name: ");
+        human->name.last = get_string();
+}
+
+void print_names(People* human){
+    printf("First Name: %s\n", human->name.first);
+    printf("Mid Name: %s\n", human->name.mid);
+    printf("Last Name: %s\n", human->name.last);
 }
 
 // Functions
 
 void get_human(People* human){
+    get_names(human);
+}
+
+void print_human(People* human){
+    printf("Human Specifications:\n\n");
+    print_names(human);
 
 }
 
@@ -132,4 +172,7 @@ void get_human(People* human){
 
 void start(){
     People* human = init_human();
+    get_human(human);
+    print_human(human);
+    free_human(human);
 }
