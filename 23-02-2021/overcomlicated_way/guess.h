@@ -41,6 +41,9 @@ Guess** init_gss(){
         buffer2 = (char*) realloc(buffer2, (sizeof(buffer) + sizeof(buffer2)));
         strcat(buffer2, buffer); 
 
+        // IDK Why this $hit doesn't work, probably something with the pointers, 
+        // but it's pain to fix, that's why I'm creating the "STUPID" verison
+        
         *gss[i]->name = (char*) realloc((*gss[i]).name, sizeof(buffer2));
         strcpy(*gss[i]->name, buffer2); 
 
