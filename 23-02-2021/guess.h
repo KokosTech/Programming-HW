@@ -18,17 +18,17 @@ typedef struct{
     bool qualities[2];
 } Guess;
 
-Guess** init(){
+Guess* init(){
     Guess* guesses[PEOPLE_NUMBER];
     for(int i = 0; i < PEOPLE_NUMBER; ++i){
         guesses[i] = (Guess*)malloc(sizeof(Guess));
         guesses[i]->name = DEFAULT_NAME;
     }
     Guess*(*p)[] = &guesses;
-    return *(*p);
+    return (*p);
 }
 
-Guess** init_gss(){
+Guess* init_gss(){
     Guess** gss = init();
 
     char buffer[3];
