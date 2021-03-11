@@ -54,15 +54,9 @@ void edit_person(Person* people, int index){
     people += index - 1;
 
     printf("Edit the first name: ");
-        scanf("%s", &temp);
-
-    strcpy(people->first_name, temp);
-
+        scanf("%s", people->first_name);
     printf("Edit the last name: ");
-        scanf("%s", &temp);
-
-    strcpy(people->last_name, temp);
-
+        scanf("%s", people->last_name);
     printf("Edit the age: ");
         scanf("%d", &people->age);
 
