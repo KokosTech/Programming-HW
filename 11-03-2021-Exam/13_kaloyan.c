@@ -6,11 +6,12 @@
 - Записва обратно във файла като добавя четвърта стойност накрая - резултата от операцията
 - Бонус: Да работи с числа с десетична запетая */
 
+
 #include <stdio.h>
 #include <string.h>
 
 #define FILE_NAME "calc.txt"
-#define CALC 4
+#define CALC 10
 #define OPER 10
 
 typedef struct {
@@ -46,14 +47,13 @@ void init_calc(Calc* calc){
 
 void calculate(Calc* calc){
     for(int i = 0; i < CALC; ++i) {
-        printf("%s\n", calc->op);
-        if(strcmp(calc->op, "PLUS"))
+        if(!strcmp(calc->op, "PLUS"))
             calc->result = calc->number1 + calc->number2;
-        else if(strcmp(calc->op, "MINUS"))
+        else if(!strcmp(calc->op, "MINUS"))
             calc->result = calc->number1 - calc->number2;
-        else if(strcmp(calc->op, "MULTIPLY"))
+        else if(!strcmp(calc->op, "MULTIPLY"))
             calc->result = calc->number1 * calc->number2;
-        else if(strcmp(calc->op, "DIVIDE"))
+        else if(!strcmp(calc->op, "DIVIDE"))
             calc->result = calc->number1 / calc->number2;
         calc++;
     }
