@@ -15,10 +15,10 @@
 #define OPER 10
 
 typedef struct {
-    int number1;
+    float number1;
     char op[OPER];
-    int number2;
-    int result;
+    float number2;
+    float result;
 } Calc;
 
 int main(){
@@ -36,7 +36,7 @@ void init_calc(Calc* calc){
     fp = fopen(FILE_NAME, "r");
 
     for(int i = 0; i < CALC; ++i) {
-        fscanf(fp, "%d %s %d", &calc->number1, calc->op, &calc->number2);
+        fscanf(fp, "%f %s %f", &calc->number1, calc->op, &calc->number2);
         calc++;
     }
 
@@ -64,10 +64,9 @@ void write_to_file(Calc* calc) {
     fp = fopen(FILE_NAME, "w");
 
     for(int i = 0; i < CALC; ++i) {
-        fprintf(fp, "%d %s %d %d\n", calc->number1, calc->op, calc->number2, calc->result);
+        fprintf(fp, "%.0f %s %.0f %.2f\n", calc->number1, calc->op, calc->number2, calc->result);
         calc++;
     }
 
     fclose(fp);
 }
-
