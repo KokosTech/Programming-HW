@@ -118,7 +118,7 @@ void remove_element(Person** array, int sizeOfArray, int indexToRemove){
             (*array)+(indexToRemove+1),
             (sizeOfArray - indexToRemove)*sizeof(Person)); // copy everything AFTER the index
 
-    // This may couse a memory leak at some point :)
+    // This may cause a memory leak at some point :)
     // Better than segmentation fault with:
     // free(*array)
 
