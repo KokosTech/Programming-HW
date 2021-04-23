@@ -78,7 +78,6 @@ Node* command_file(Node* head){
         } else if(!strcmp(cmd, "POP")){
             head = pop(head);
         } else if(!strcmp(cmd, "PEEK")){
-            fscanf(fp, "%d", &data);
             peek(head);
         } else if(!strcmp(cmd, "END")){
             break;
@@ -93,21 +92,8 @@ Node* command_file(Node* head){
 int main() {
     Node* head = (Node*)calloc(1, sizeof(Node));
     head->data = 7;
-
-    if (head->next == NULL) {
-        printf("Head is initiated: data=%d\n", head->data);
-    }
-
-    printf("Before File:\n\n");
-
-    head = push(head, 9);
-    head = push(head, 11);
-    print(head);
-
-    printf("\n\nAfter File:\n\n");
     
     head = command_file(head);
-
     print(head);
 
 
