@@ -84,7 +84,7 @@ void insertLast(int key, char str[], float data){
     last = link;
 }
 
-struct node *deleteFirst(){
+struct node *popFirst(){
     struct node *tempLink = head;
 
     if (head->next == NULL){
@@ -97,7 +97,7 @@ struct node *deleteFirst(){
     return tempLink;
 }
 
-struct node *deleteLast(){
+struct node *popLast(){
     struct node *tempLink = last;
 
     if (head->next == NULL){
@@ -211,11 +211,11 @@ void main(){
     displayBackward();
 
     printf("\nList , after deleting first record:\n");
-    deleteFirst();
+    popFirst();
     displayForward();
 
     printf("\nList , after deleting last record:\n");
-    deleteLast();
+    popLast();
     displayForward();
 
     printf("\nList , insert after key(4):\n");
